@@ -1,15 +1,17 @@
 console.log("Welcome to spotify");
-let audioElement=new Audio('Zayn_-_Allah_Duhai_Hai_Cover_.mp3');
-let playPauseButton=document.getElementById("playPauseBtn");
+let audioElement=new Audio();
 let progressBar=document.getElementById("myProgressBar");
+let masterPlay=document.getElementById("masterPlay");
+let songItem= Array.from(document.getElementsByClassName("songItem"));  //collection of html elements
+let songItemPlayButtons=Array.from(document.getElementsByClassName("songItemPlay"));
 
-let songs=[{songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.jpg"},
-    {songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.jpg"},
-    {songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.jpg"},
-    {songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.jpg"},
-    {songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.jpg"}
+
+let songs=[{songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.webp"},
+    {songName:"Dusk_Till_Dawn",filePath:"songsList/2.mp3",coverPath:"covers/2.webp"},
+    {songName:"Vibez",filePath:"songsList/3.mp3",coverPath:"covers/3.webp"},
+    {songName:"Entertainer",filePath:"songsList/4.mp3",coverPath:"covers/4.jpg"},
+    {songName:"Pillowtalk",filePath:"songsList/5.mp3",coverPath:"covers/5.jpg"}
 ]
-
 
 
 
@@ -20,16 +22,17 @@ function togglePlayPause()
     if(audioElement.paused)
     {
        audioElement.play();
-      
+       masterPlay.classList.remove("fa-solid fa-play");
+       masterPlay.classList.add("fa-solid fa-pause");
     }
     else{
-       audioElement.pause();
-       
+       audioElement.pause(); 
+       masterPlay.classList.remove("fa-solid fa-pause");
+       masterPlay.classList.add("fa-solid fa-play");   
     }
 }
 
-playPauseButton.addEventListener("click",togglePlayPause);
-
+masterPlay.addEventListener("click",togglePlayPause);
 
 
 //Step 2. update seekbar
@@ -46,3 +49,26 @@ progressBar.addEventListener("input",()=>{
     let updateCurrent=(progressBar.value/100)* audioElement.duration;
     audioElement.currentTime=updateCurrent;
 })
+
+
+// step 4: include all songs
+
+songItem.forEach((element,i)=>{
+    let songName=element.getElementsByClassName("songName")[0];
+    let songCover=element.getElementsByTagName("img")[0];
+    songName.innerText=songs[i].songName;
+    songCover.src=songs[i].coverPath;
+
+});
+
+// step 5: play songs 
+
+songItemPlayButtons.forEach((button,index)=>
+{
+    button.addEventListener("click",()=>
+    {
+        audioElement.src=songs[index].filePath;
+        audioElement.play();
+        
+    });
+});
