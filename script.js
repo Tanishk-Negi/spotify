@@ -55,9 +55,9 @@ progressBar.addEventListener("input",()=>{
 
 songItem.forEach((element,i)=>{
     let songName=element.getElementsByClassName("songName")[0];
-    let songCover=element.getElementsByTagName("img")[0];
+ 
     songName.innerText=songs[i].songName;
-    songCover.src=songs[i].coverPath;
+   
 
 });
 
