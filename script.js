@@ -4,15 +4,18 @@ let progressBar=document.getElementById("myProgressBar");
 let masterPlay=document.getElementById("masterPlay");
 let songItem= Array.from(document.getElementsByClassName("songItem"));  //collection of html elements
 let songItemPlayButtons=Array.from(document.getElementsByClassName("songItemPlay"));
+let currentIndex=0;
+let masterSongName=document.getElementById("masterSongName");
 
 
-let songs=[{songName:"Allah_Duhai_Hai",filePath:"1.mp3",coverPath:"covers/1.webp"},
-    {songName:"Dusk_Till_Dawn",filePath:"2.mp3",coverPath:"covers/2.webp"},
-    {songName:"Vibez",filePath:"3.mp3",coverPath:"covers/3.webp"},
-    {songName:"Entertainer",filePath:"4.mp3",coverPath:"covers/4.jpg"},
-    {songName:"Pillowtalk",filePath:"5.mp3",coverPath:"covers/5.jpg"}
+let songs=[{songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.webp"},
+    {songName:"Dusk_Till_Dawn",filePath:"songsList/2.mp3",coverPath:"covers/2.webp"},
+    {songName:"Vibez",filePath:"songsList/3.mp3",coverPath:"covers/3.webp"},
+    {songName:"Entertainer",filePath:"songsList/4.mp3",coverPath:"covers/4.jpg"},
+    {songName:"Star_Dust",filePath:"songsList/8.mp3",coverPath:"covers/5.jpg"},
+    {songName:"Fingers",filePath:"songsList/6.mp3",coverPath:"covers/1.webp"},
+    {songName:"Let_me",filePath:"songsList/7.mp3",coverPath:"covers/3.webp"}
 ]
-
 
 
 // Step 1. Play /Pause functionality
@@ -22,13 +25,13 @@ function togglePlayPause()
     if(audioElement.paused)
     {
        audioElement.play();
-       masterPlay.classList.remove("fa-solid fa-play");
-       masterPlay.classList.add("fa-solid fa-pause");
+       this.classList.remove("fa-solid"," fa-play");
+     //  this.classList.add("fa-solid fa-pause");
     }
     else{
        audioElement.pause(); 
-       masterPlay.classList.remove("fa-solid fa-pause");
-       masterPlay.classList.add("fa-solid fa-play");   
+       this.classList.remove("fa-solid"," fa-pause");
+     //  this.classList.add("fa-solid fa-play");   
     }
 }
 
@@ -55,9 +58,9 @@ progressBar.addEventListener("input",()=>{
 
 songItem.forEach((element,i)=>{
     let songName=element.getElementsByClassName("songName")[0];
- 
+    let songCover=element.getElementsByTagName("img")[0];
     songName.innerText=songs[i].songName;
-   
+    songCover.src=songs[i].coverPath;
 
 });
 
@@ -67,8 +70,66 @@ songItemPlayButtons.forEach((button,index)=>
 {
     button.addEventListener("click",()=>
     {
+        currentIndex=index;
         audioElement.src=songs[index].filePath;
+        audioElement.load();
+        masterSongName.innerText=songs[index].songName;
+        if(audioElement.paused)
+        {
         audioElement.play();
+        }
+        else{
+            audioElement.pause();
+        }
         
     });
 });
+
+
+// step 6:play previous and next songs
+
+document.getElementById("next").addEventListener("click",()=>{
+    if(currentIndex >= songs.length-1)
+    {
+        currentIndex=0;
+        
+    }
+    else{
+       currentIndex=currentIndex+1;
+    }
+    audioElement.src=songs[currentIndex].filePath;
+    masterSongName.innerText=songs[currentIndex].songName;
+
+    if(audioElement.paused)
+    {
+        audioElement.play();
+    }
+    masterPlay.classList.remove("fa-solid fa-pause");
+    masterPlay.classList.add("fa-solid fa-play");
+    
+})
+
+
+document.getElementById("previous").addEventListener("click",()=>{
+    if(currentIndex<=0)
+    {
+        currentIndex=songs.length-1;
+    }
+    else{
+        currentIndex=currentIndex-1;
+    }
+    audioElement.src=songs[currentIndex].filePath;
+    masterSongName.innerText=songs[currentIndex].songName;
+    if(audioElement.paused)
+    {
+        audioElement.play();
+    }
+    masterPlay.classList.remove("fa-solid fa-pause");
+    masterPlay.classList.add("fa-solid fa-play");
+    
+})
+
+
+
+
+
