@@ -8,13 +8,13 @@ let currentIndex=0;
 let masterSongName=document.getElementById("masterSongName");
 
 
-let songs=[{songName:"Allah_Duhai_Hai",filePath:"songsList/1.mp3",coverPath:"covers/1.webp"},
-    {songName:"Dusk_Till_Dawn",filePath:"songsList/2.mp3",coverPath:"covers/2.webp"},
-    {songName:"Vibez",filePath:"songsList/3.mp3",coverPath:"covers/3.webp"},
-    {songName:"Entertainer",filePath:"songsList/4.mp3",coverPath:"covers/4.jpg"},
-    {songName:"Star_Dust",filePath:"songsList/8.mp3",coverPath:"covers/5.jpg"},
-    {songName:"Fingers",filePath:"songsList/6.mp3",coverPath:"covers/1.webp"},
-    {songName:"Let_me",filePath:"songsList/7.mp3",coverPath:"covers/3.webp"}
+let songs=[{songName:"Allah_Duhai_Hai",filePath:"1.mp3",coverPath:"covers/1.webp"},
+    {songName:"Dusk_Till_Dawn",filePath:"2.mp3",coverPath:"covers/2.webp"},
+    {songName:"Vibez",filePath:"3.mp3",coverPath:"covers/3.webp"},
+    {songName:"Entertainer",filePath:"4.mp3",coverPath:"covers/4.jpg"},
+    {songName:"Star_Dust",filePath:"8.mp3",coverPath:"covers/5.jpg"},
+    {songName:"Fingers",filePath:"6.mp3",coverPath:"covers/1.webp"},
+    {songName:"Let_me",filePath:"7.mp3",coverPath:"covers/3.webp"}
 ]
 
 
