@@ -41,7 +41,7 @@ nav ul{
 .bottom{
     position:fixed;
     background-color : black;
-    height:130px;
+    height:88px;
     bottom:0px;
     display:flex;
    color:white;
@@ -49,11 +49,14 @@ nav ul{
     align-items:center;
 }
 
-#myProgressBar
-{
-    width:100%;
-    cursor:pointer;
-   padding:20px 20px;
+#myProgressBar {
+    width: 96%;
+    position: absolute;
+    left: 32px;
+    top:14px;
+    cursor: pointer;
+    height: 8px;
+    background-color: blue;
 }
 
 
@@ -70,12 +73,23 @@ nav ul{
     
 }
 
-.icons{
+#previous
+{
+    cursor:pointer;
+}
+
+#masterPlay
+{
+    cursor:pointer;
+}
+
+#next
+{
     cursor:pointer;
 }
 
 .container{
-    min-height:63vh;
+    min-height:70vh;
     background-color: black;
     font-family:cursive;
     color:white;
@@ -127,11 +141,11 @@ nav ul{
     cursor:pointer;
 }
 
-.songInfo 
-{
-    position:absolute;
-    left:0;
-    font-family: 'Courier New', Courier, monospace;
+.songInfo {
+    position: absolute;
+    top: 35px;
+    left: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .songInfo img{
