@@ -10,7 +10,7 @@ let masterSongName=document.getElementById("masterSongName");
 
 let songs=[{songName:"Allah_Duhai_Hai",filePath:"1.mp3"},
     {songName:"Dusk_Till_Dawn",filePath:"2.mp3"},
-    {songName:"Vibez",filePath:"3.mp3",coverPath:"c3.webp"},
+    {songName:"Vibez",filePath:"3.mp3"},
     {songName:"Entertainer",filePath:"4.mp3"},
     {songName:"Star_Dust",filePath:"8.mp3"},
     {songName:"Fingers",filePath:"6.mp3"},
