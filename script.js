@@ -8,13 +8,13 @@ let currentIndex=0;
 let masterSongName=document.getElementById("masterSongName");
 
 
-let songs=[{songName:"Allah_Duhai_Hai",filePath:"1.mp3",coverPath:"c1.webp"},
-    {songName:"Dusk_Till_Dawn",filePath:"2.mp3",coverPath:"c2.webp"},
+let songs=[{songName:"Allah_Duhai_Hai",filePath:"1.mp3"},
+    {songName:"Dusk_Till_Dawn",filePath:"2.mp3"},
     {songName:"Vibez",filePath:"3.mp3",coverPath:"c3.webp"},
-    {songName:"Entertainer",filePath:"4.mp3",coverPath:"c4.jpg"},
-    {songName:"Star_Dust",filePath:"8.mp3",coverPath:"c5.jpg"},
-    {songName:"Fingers",filePath:"6.mp3",coverPath:"c1.webp"},
-    {songName:"Let_me",filePath:"7.mp3",coverPath:"c3.webp"}
+    {songName:"Entertainer",filePath:"4.mp3"},
+    {songName:"Star_Dust",filePath:"8.mp3"},
+    {songName:"Fingers",filePath:"6.mp3"},
+    {songName:"Let_me",filePath:"7.mp3"}
 ]
 
 
@@ -58,9 +58,9 @@ progressBar.addEventListener("input",()=>{
 
 songItem.forEach((element,i)=>{
     let songName=element.getElementsByClassName("songName")[0];
-    let songCover=element.getElementsByTagName("img")[0];
+   
     songName.innerText=songs[i].songName;
-    songCover.src=songs[i].coverPath;
+   
 
 });
 
